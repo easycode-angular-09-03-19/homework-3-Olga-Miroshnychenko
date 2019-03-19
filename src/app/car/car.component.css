@@ -1,0 +1,28 @@
+div{
+  background: linear-gradient(to top, #FFFFFF ,#696969);
+}
+.hide {
+  display: none;
+}
+.isVisible {
+  display: block;
+}
+#id1{
+  background-color: green;
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+#id2{
+  background-color: red;
+  width: 100px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+}
+ul{
+  text-align: left;
+  font-size: 18px;
+}
