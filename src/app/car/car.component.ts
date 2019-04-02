@@ -5,24 +5,17 @@ import { Car } from '../interfaces/Car';
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css']
 })
-export class CarComponent implements Car {
+export class CarComponent {
   public isActiveClass = true;
   public isVisible: boolean ;
-  name: string;
-  mileage: number;
-  fuelTankCapacity: number;
-  currentFuel: number;
-  anotherInfo: string[];
-  car: { name: string; mileage: number; currentFuel: number; anotherInfo: string[]; fuelTankCapacity: number };
-  constructor() {
-    this.car = {
-      name: 'Chevrolet Impala',
-      mileage: 100,
-      fuelTankCapacity: 60,
-      currentFuel: 10,
-      anotherInfo: ['Engine: 2L', 'Max speed: 200km/h']
-    };
-  }
+  car: Car = {
+    name: 'Chevrolet Impala',
+    mileage: 100,
+    fuelTankCapacity: 60,
+    currentFuel: 10,
+    anotherInfo: ['Engine: 2L', 'Max speed: 200km/h']
+  };
+  constructor() { }
   /*
   Method Drive
   */
@@ -42,20 +35,23 @@ export class CarComponent implements Car {
   /*
   Event Drive
   */
-  ClickHandler(e: Event) {
+  clickHandlerDrive(e: Event) {
     this.drive();
     this.isActiveClass = !this.isActiveClass;
     this.isVisible = true;
     if (this.car.currentFuel <= 0) {
-      return alert('Нужно заправиться на 10 л!') , document.getElementById('id1').style.display = 'none', document.getElementById('id2').style.display = 'inline-block' ; }
+      return alert('Нужно заправиться на 10 л!') ,
+        document.getElementById('drive').style.display = 'none',
+        document.getElementById('refuel').style.display = 'inline-block' ; }
   }
   /*
   Event Refuel
   */
-    ClickHandler2(e: Event) {
+    clickHandlerRefuel(e: Event) {
       this.refuel();
       if (this.car.currentFuel === 10) {
-        return document.getElementById('id2').style.display = 'none' , document.getElementById('id1').style.display = 'inline-block';
+        return document.getElementById('refuel').style.display = 'none' ,
+          document.getElementById('drive').style.display = 'inline-block';
       }
   }
 }
